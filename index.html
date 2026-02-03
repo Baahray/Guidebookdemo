@@ -337,36 +337,43 @@
 }
  
 /* ===============================
-   MENU BUTTON TWITCH (MOBILE)
+   MENU BUTTON SOFT POP (MOBILE)
    =============================== */
 
-@keyframes twitch {
-  0%   { transform: translateX(0); }
-  20%  { transform: translateX(-2px); }
-  40%  { transform: translateX(2px); }
-  60%  { transform: translateX(-1px); }
-  80%  { transform: translateX(1px); }
-  100% { transform: translateX(0); }
+@keyframes soft-pop {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  }
+
+  40% {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  }
 }
 
-/* Base button safety */
+/* Base menu buttons */
 .menu a {
-  display: inline-block; /* REQUIRED for transform */
-  animation: twitch 0.25s ease-in-out 0.6s 1;
+  display: inline-block;
+  animation: soft-pop 3.8s ease-in-out infinite;
 }
 
-.menu a:nth-child(1)  { animation-delay: 0.3s; }
-.menu a:nth-child(2)  { animation-delay: 0.45s; }
-.menu a:nth-child(3)  { animation-delay: 0.6s; }
-.menu a:nth-child(4)  { animation-delay: 0.75s; }
-.menu a:nth-child(5)  { animation-delay: 0.9s; }
-.menu a:nth-child(6)  { animation-delay: 1.05s; }
-.menu a:nth-child(7)  { animation-delay: 1.2s; }
-.menu a:nth-child(8)  { animation-delay: 1.35s; }
-.menu a:nth-child(9)  { animation-delay: 1.5s; }
-.menu a:nth-child(10) { animation-delay: 1.65s; }
-.menu a:nth-child(11) { animation-delay: 1.8s; }
-
+.menu a:nth-child(1)  { animation-delay: 0s; }
+.menu a:nth-child(2)  { animation-delay: 0.4s; }
+.menu a:nth-child(3)  { animation-delay: 0.8s; }
+.menu a:nth-child(4)  { animation-delay: 1.2s; }
+.menu a:nth-child(5)  { animation-delay: 1.6s; }
+.menu a:nth-child(6)  { animation-delay: 2s; }
+.menu a:nth-child(7)  { animation-delay: 2.4s; }
+.menu a:nth-child(8)  { animation-delay: 2.8s; }
+.menu a:nth-child(9)  { animation-delay: 3.2s; }
+.menu a:nth-child(10) { animation-delay: 3.6s; }
+.menu a:nth-child(11) { animation-delay: 4s; }
 
 
   </style>
