@@ -334,28 +334,42 @@
 
   box-shadow:
     0 12px 22px rgba(0, 0, 0, 0.16);
-}
- 
 /* ===============================
-   MENU BUTTON SOFT POP (MOBILE)
+   MENU BUTTON SOFT POP + PAUSE
    =============================== */
 
-@keyframes soft-pop {
+@keyframes soft-pop-pause {
+  /* resting */
   0% {
     transform: translateY(0) scale(1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
   }
 
-  40% {
-    transform: translateY(-6px) scale(1.03);
+  /* stay still for most of the time */
+  70% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  }
+
+  /* gentle pop */
+  85% {
+    transform: translateY(-5px) scale(1.03);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
   }
 
+  /* settle back */
   100% {
     transform: translateY(0) scale(1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
   }
 }
+
+/* Menu buttons */
+.menu a {
+  display: inline-block;
+  animation: soft-pop-pause 5.5s ease-in-out infinite;
+}
+
 
 /* Base menu buttons */
 .menu a {
@@ -364,16 +378,16 @@
 }
 
 .menu a:nth-child(1)  { animation-delay: 0s; }
-.menu a:nth-child(2)  { animation-delay: 0.4s; }
-.menu a:nth-child(3)  { animation-delay: 0.8s; }
-.menu a:nth-child(4)  { animation-delay: 1.2s; }
-.menu a:nth-child(5)  { animation-delay: 1.6s; }
-.menu a:nth-child(6)  { animation-delay: 2s; }
-.menu a:nth-child(7)  { animation-delay: 2.4s; }
-.menu a:nth-child(8)  { animation-delay: 2.8s; }
-.menu a:nth-child(9)  { animation-delay: 3.2s; }
-.menu a:nth-child(10) { animation-delay: 3.6s; }
-.menu a:nth-child(11) { animation-delay: 4s; }
+.menu a:nth-child(2)  { animation-delay: 0.5s; }
+.menu a:nth-child(3)  { animation-delay: 1s; }
+.menu a:nth-child(4)  { animation-delay: 1.5s; }
+.menu a:nth-child(5)  { animation-delay: 2s; }
+.menu a:nth-child(6)  { animation-delay: 2.5s; }
+.menu a:nth-child(7)  { animation-delay: 3s; }
+.menu a:nth-child(8)  { animation-delay: 3.5s; }
+.menu a:nth-child(9)  { animation-delay: 4s; }
+.menu a:nth-child(10) { animation-delay: 4.5s; }
+.menu a:nth-child(11) { animation-delay: 5s; }
 
 
   </style>
