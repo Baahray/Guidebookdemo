@@ -221,19 +221,29 @@ section img {
   }
 }
 
-.menu a {
+/* SHARED BUTTON STYLE — menu + back */
+.menu a,
+.back {
   display: block;
   text-align: center;
   padding: 14px;
-  background: #ffffff;
+  background: #f1f3f1;
   border-radius: 8px;
   text-decoration: none;
   color: #000;
   font-family: var(--font-heading);
-  font-weight: 500;
+  font-weight: bold;
   letter-spacing: 0.03em;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+/* Optional hover polish */
+.menu a:hover,
+.back:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
 
 /* ===============================
    MENU ANIMATION
@@ -452,9 +462,10 @@ details[open] summary::before {
 .socials {
   display: flex;
   gap: 14px;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 24px;
 }
+
 
 .socials img,
 .socials svg {
