@@ -4,16 +4,83 @@
   <meta charset="UTF-8">
   <title>Luss Cottage – BNBHost</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+/* ===============================
+   TYPOGRAPHY SYSTEM – CLEAN & MODERN
+   =============================== */
 
-
-/* Guidebook background */
-.guidebook {
-  background: #f4f6f8;   /* soft light grey */
-  padding: 2rem 1.5rem 4rem;
-  min-height: 100vh;
+:root {
+  --font-heading: "Futura", "Futura PT", "Avenir Next", "Segoe UI", sans-serif;
+  --font-body: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: #222;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0 16px;
+}
+
+/* Page title */
+h1 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 1.9rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+/* Section titles */
+h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.2rem;
+}
+
+/* Sub-headings with icons */
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Body text */
+p,
+li,
+details p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Captions */
+figcaption,
+.small-text {
+  font-size: 0.82rem;
+  color: #666;
+}
+
+/* Strong text – calm emphasis */
+strong {
+  font-weight: 500;
+}
+
+
 
     
 
@@ -170,13 +237,7 @@
   overflow: visible;
 }
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0 16px;
-      background: #f7f7f7;
-      color: #222;
-    }
+
 
     h1, h2 {
       text-align: center;
@@ -209,7 +270,10 @@
       border-radius: 8px;
       text-decoration: none;
       color: #000;
-      font-weight: bold;
+      font-family: var(--font-heading);
+font-weight: 500;
+letter-spacing: 0.03em;
+
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
@@ -273,11 +337,7 @@
    GUIDEBOOK BACKGROUND
    =============================== */
 
-.guidebook {
-  background: #121212;
-  padding: 2rem 1.5rem 4rem;
-  min-height: 100vh;
-}
+
 
 /* ===============================
    GUIDEBOOK BACKGROUND
@@ -307,20 +367,7 @@
    TEXT – GENTLY SUNK (NO COLOUR CHANGE)
    =============================== */
 
-/* Headings – lightly etched */
-#arrival h3 {
-  color: #000;
-  text-shadow:
-    0 1px 0 rgba(0, 0, 0, 0.15),
-    0 -1px 0 rgba(255, 255, 255, 0.6);
-}
 
-/* Body text – slightly more recessed */
-#arrival p {
-  color: #000;
-  text-shadow:
-    0 1px 1px rgba(0, 0, 0, 0.18),
-    0 -1px 0 rgba(255, 255, 255, 0.7);
 }
 
 /* ===============================
