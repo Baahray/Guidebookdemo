@@ -249,61 +249,62 @@ section img {
    MENU ANIMATION
    =============================== */
 
-@keyframes depthBreathe {
+@keyframes depthBounce {
   /* REST */
   0% {
     transform: scale(1);
     background-color: #d1d6d2;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.14);
   }
 
-  /* LIFT TOWARD VIEWER */
-  18% {
-    transform: scale(1.03);
+  /* FAST PUSH TOWARD VIEWER */
+  8% {
+    transform: scale(1.08);
     background-color: #d1d6d2;
-    box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+    box-shadow: 0 22px 48px rgba(0,0,0,0.38);
   }
 
-  /* PEAK – subtle warmth */
-  26% {
-    transform: scale(1.045);
+  /* PEAK – warm highlight */
+  14% {
+    transform: scale(1.12);
     background-color: #d8c9a1;
-    box-shadow: 0 16px 36px rgba(0,0,0,0.28);
+    box-shadow: 0 30px 64px rgba(0,0,0,0.45);
   }
 
-  /* RETURN */
-  40% {
-    transform: scale(1.02);
+  /* ELASTIC SETTLE */
+  22% {
+    transform: scale(1.06);
     background-color: #d1d6d2;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.3);
   }
 
-  /* REST */
+  /* FULL REST */
   100% {
     transform: scale(1);
     background-color: #d1d6d2;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.14);
   }
 }
 
 .menu a {
-  animation: depthBreathe 10s ease-in-out infinite;
+  animation: depthBounce 7.5s cubic-bezier(.34,1.56,.64,1) infinite;
   animation-fill-mode: both;
   will-change: transform, box-shadow, background-color;
 }
 
-/* soft stagger */
+/* staggered but fast start */
 .menu a:nth-child(1)  { animation-delay: 0s; }
-.menu a:nth-child(2)  { animation-delay: 0.4s; }
-.menu a:nth-child(3)  { animation-delay: 0.8s; }
-.menu a:nth-child(4)  { animation-delay: 1.2s; }
-.menu a:nth-child(5)  { animation-delay: 1.6s; }
-.menu a:nth-child(6)  { animation-delay: 2s; }
-.menu a:nth-child(7)  { animation-delay: 2.4s; }
-.menu a:nth-child(8)  { animation-delay: 2.8s; }
-.menu a:nth-child(9)  { animation-delay: 3.2s; }
-.menu a:nth-child(10) { animation-delay: 3.6s; }
-.menu a:nth-child(11) { animation-delay: 4s; }
+.menu a:nth-child(2)  { animation-delay: 0.25s; }
+.menu a:nth-child(3)  { animation-delay: 0.5s; }
+.menu a:nth-child(4)  { animation-delay: 0.75s; }
+.menu a:nth-child(5)  { animation-delay: 1s; }
+.menu a:nth-child(6)  { animation-delay: 1.25s; }
+.menu a:nth-child(7)  { animation-delay: 1.5s; }
+.menu a:nth-child(8)  { animation-delay: 1.75s; }
+.menu a:nth-child(9)  { animation-delay: 2s; }
+.menu a:nth-child(10) { animation-delay: 2.25s; }
+.menu a:nth-child(11) { animation-delay: 2.5s; }
+
 
 
 .menu a {
@@ -1370,7 +1371,7 @@ Please message us through the original booking platform.
     </svg>
   </a>
 </div>
-
+<div class="spacer"></div>
 
     <a href="#menu" class="back">
       Back to Menu
