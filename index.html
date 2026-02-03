@@ -7,6 +7,32 @@
 
   <style>
 
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;              /* space BETWEEN icons */
+  margin: 20px 0;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;            /* tap target size */
+  height: 48px;
+
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.socials svg {
+  width: 28px;            /* icon size */
+  height: 28px;
+}
+
+
     body.no-scroll {
   overflow: hidden;
 }
@@ -1044,9 +1070,10 @@ Please message us through the original booking platform.
 </svg> Back to Menu</a></section>
 
 <section id="Contact">
+  <h2>Contact Us</h2>
+
   <details id="contact">
-    <summary>
-      <h2>Contact Us</h2>
+    <summary>Get in touch</summary>
     </summary>
 
     
@@ -1068,29 +1095,18 @@ Please message us through the original booking platform.
 
     <div class="socials">
   <a href="https://www.facebook.com/bnbhostltd" target="_blank" aria-label="Facebook">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon">
-      <path d="M22 12a10 10 0 1 0-11.5 9.95v-7.04H8.07V12h2.43V9.8c0-2.4 1.43-3.73 3.62-3.73c1.05 0 2.15.19 2.15.19v2.36h-1.21c-1.19 0-1.56.74-1.56 1.5V12h2.66l-.43 2.91h-2.23v7.04A10 10 0 0 0 22 12Z"/>
-    </svg>
+    <!-- facebook svg -->
   </a>
-
-
-
 
   <a href="https://www.instagram.com/bnbhostltd/" target="_blank" aria-label="Instagram">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon">
-      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.5A4.5 4.5 0 1 0 16.5 12A4.51 4.51 0 0 0 12 7.5Zm0 7.4A2.9 2.9 0 1 1 14.9 12A2.91 2.91 0 0 1 12 14.9ZM17.5 6.1a1.1 1.1 0 1 0 1.1 1.1a1.1 1.1 0 0 0-1.1-1.1Z"/>
-    </svg>
+    <!-- instagram svg -->
   </a>
-
-
-
 
   <a href="https://www.linkedin.com/company/bnbhost-limited/" target="_blank" aria-label="LinkedIn">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon">
-      <path d="M4.98 3.5A2.5 2.5 0 1 1 2.5 6a2.5 2.5 0 0 1 2.48-2.5ZM3 8.98h3.96V21H3Zm7.5 0h3.8v1.64h.05a4.17 4.17 0 0 1 3.75-2.06c4 0 4.74 2.63 4.74 6.04V21h-3.96v-5.38c0-1.28-.02-2.93-1.79-2.93c-1.8 0-2.07 1.4-2.07 2.84V21H10.5Z"/>
-    </svg>
+    <!-- linkedin svg -->
   </a>
 </div>
+
 
     <a href="#menu" class="back">
       Back to Menu
