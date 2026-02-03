@@ -249,54 +249,39 @@ section img {
    MENU ANIMATION
    =============================== */
 
-@keyframes depthWave {
+@keyframes bounceGlow {
   /* REST */
-  0% {
+  0%,
+  70% {
     transform: scale(1);
-    background-color: #d1d6d2;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.14);
+    background: #d1d6d2;
   }
 
-  /* RISE TOWARD VIEWER */
-  25% {
-    transform: scale(1.1);
-    background-color: #d8c9a1;
-    box-shadow: 0 26px 56px rgba(0,0,0,0.4);
+  /* RISE */
+  80% {
+    transform: scale(1.03);
+    background: #d1d6d2;
+  }
+
+  /* PEAK — brief colour pop */
+  85% {
+    transform: scale(1.045); /* reduced pop */
+    background: #d8c9a1;
+  }
+
+  /* FALL */
+  92% {
+    transform: scale(1.02);
+    background: #d1d6d2;
   }
 
   /* SETTLE */
-  45% {
-    transform: scale(1.03);
-    background-color: #d1d6d2;
-    box-shadow: 0 14px 30px rgba(0,0,0,0.28);
-  }
-
-  /* LONG REST */
   100% {
     transform: scale(1);
-    background-color: #d1d6d2;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.14);
+    background: #d1d6d2;
   }
 }
 
-.menu a {
-  animation: depthWave 10s cubic-bezier(.22,.61,.36,1) infinite;
-  animation-fill-mode: both;
-  will-change: transform, box-shadow, background-color;
-}
-
-/* DOWNWARD WAVE */
-.menu a:nth-child(1)  { animation-delay: 0s; }
-.menu a:nth-child(2)  { animation-delay: 0.18s; }
-.menu a:nth-child(3)  { animation-delay: 0.36s; }
-.menu a:nth-child(4)  { animation-delay: 0.54s; }
-.menu a:nth-child(5)  { animation-delay: 0.72s; }
-.menu a:nth-child(6)  { animation-delay: 0.9s; }
-.menu a:nth-child(7)  { animation-delay: 1.08s; }
-.menu a:nth-child(8)  { animation-delay: 1.26s; }
-.menu a:nth-child(9)  { animation-delay: 1.44s; }
-.menu a:nth-child(10) { animation-delay: 1.62s; }
-.menu a:nth-child(11) { animation-delay: 1.8s; }
 
 
 
