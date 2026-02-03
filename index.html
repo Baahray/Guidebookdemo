@@ -251,56 +251,57 @@ section img {
    MENU ANIMATION – SOOTHING TOUCH WAVE
    =============================== */
 
-/* CALM, BREATH-LIKE PULSE */
 @keyframes touchWave {
-  /* REST */
-  0%, 65% {
+  0%, 70% {
     transform: scale(1);
     background-color: #d1d6d2;
   }
 
-  /* GENTLE LIFT */
-  72% {
-    transform: scale(1.02);
+  78% {
+    transform: scale(1.025);
     background-color: #ddd8c8;
   }
 
-  /* SOFT PEAK */
-  78% {
+  82% {
     transform: scale(1.035);
-    background-color: #ffffff;
+    background-color: #e6dcc6;
   }
 
-  /* RELEASE */
-  86% {
+  90% {
     transform: scale(1.015);
     background-color: #d1d6d2;
   }
 
-  /* FULL REST */
   100% {
     transform: scale(1);
     background-color: #d1d6d2;
   }
 }
 
-/* APPLY TO MENU BUTTONS */
-.menu-grid a {
-  animation: touchWave 12s cubic-bezier(0.4, 0.0, 0.2, 1) 1;
+/* APPLY TO YOUR MENU */
+.menu a {
+  animation-name: touchWave;
+  animation-duration: 12s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-iteration-count: infinite;
   transform-origin: center;
   will-change: transform, background-color;
 }
 
-/* DOWNWARD WAVE (TOP → BOTTOM) */
-.menu-grid a:nth-child(1) { animation-delay: 0s; }
-.menu-grid a:nth-child(2) { animation-delay: 0.6s; }
-.menu-grid a:nth-child(3) { animation-delay: 1.2s; }
-.menu-grid a:nth-child(4) { animation-delay: 1.8s; }
-.menu-grid a:nth-child(5) { animation-delay: 2.4s; }
-.menu-grid a:nth-child(6) { animation-delay: 3s; }
-.menu-grid a:nth-child(7) { animation-delay: 3.6s; }
-.menu-grid a:nth-child(8) { animation-delay: 4.2s; }
-.menu-grid a:nth-child(9) { animation-delay: 4.8s; }
+/* TOP → BOTTOM WAVE */
+.menu a:nth-child(1) { animation-delay: 0s; }
+.menu a:nth-child(2) { animation-delay: 0.6s; }
+.menu a:nth-child(3) { animation-delay: 1.2s; }
+.menu a:nth-child(4) { animation-delay: 1.8s; }
+.menu a:nth-child(5) { animation-delay: 2.4s; }
+.menu a:nth-child(6) { animation-delay: 3s; }
+.menu a:nth-child(7) { animation-delay: 3.6s; }
+.menu a:nth-child(8) { animation-delay: 4.2s; }
+.menu a:nth-child(9) { animation-delay: 4.8s; }
+.menu a:nth-child(10){ animation-delay: 5.4s; }
+.menu a:nth-child(11){ animation-delay: 6s; }
+
+
 
 
 /* ===============================
@@ -514,7 +515,7 @@ details[open] summary::before {
     <a href="#kitchen">Kitchen</a>
     <a href="#bathroom">Bathroom</a>
     <a href="#local">Local Area</a>
-    <a href="#Trash">Trash & recycling</a>
+    <a href="#Trash">Trash & Recycling</a>
     <a href="#safety">Emergency</a>
     <a href="#departure">Check-Out</a>
     <a href="#contact">Contact Us</a>
@@ -1317,7 +1318,7 @@ Please message us through the original booking platform.
   <path stroke-linecap="round" stroke-linejoin="round" d="M11.99 7.5 8.24 3.75m0 0L4.49 7.5m3.75-3.75v16.499h11.25" />
 </svg> Back to Menu</a></section>
 
-<section id="Contact">
+<section id="contact">
   <h2>Contact Us</h2>
 
     <p>
