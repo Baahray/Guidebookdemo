@@ -250,26 +250,32 @@ section img {
    =============================== */
 
 @keyframes bounceGlow {
-  0% {
-    transform: translateY(0);
-    background: #d1d6d2; /* back button colour */
-  }
-
-  40% {
-    transform: translateY(-4px);
-    background: #d1d6d2;
-  }
-
-  55% {
-    transform: translateY(-8px);
-    background: #515753; /* orange at the top */
-  }
-
+  /* RESTING */
+  0%,
   70% {
+    transform: translateY(0);
+    background: #d1d6d2; /* base (back button) colour */
+  }
+
+  /* RISE */
+  80% {
+    transform: translateY(-6px);
+    background: #d1d6d2;
+  }
+
+  /* PEAK – brief colour pop */
+  85% {
+    transform: translateY(-10px);
+    background: #515753; /* soft warm pop */
+  }
+
+  /* FALL */
+  92% {
     transform: translateY(-4px);
     background: #d1d6d2;
   }
 
+  /* SETTLE */
   100% {
     transform: translateY(0);
     background: #d1d6d2;
@@ -277,8 +283,9 @@ section img {
 }
 
 
+
 .menu a {
-  animation: bounceGlow 3.5s ease-in-out infinite;
+  animation: bounceGlow 6s ease-in-out infinite;
 }
 
 .menu a:nth-child(1)  { animation-delay: 0.4s; }
