@@ -250,11 +250,11 @@ section img {
    =============================== */
 
 @keyframes bounceGlow {
-  /* RESTING */
+  /* REST */
   0%,
   70% {
     transform: translateY(0);
-    background: #d1d6d2; /* base (back button) colour */
+    background: #d1d6d2;
   }
 
   /* RISE */
@@ -263,10 +263,10 @@ section img {
     background: #d1d6d2;
   }
 
-  /* PEAK – brief colour pop */
+  /* PEAK */
   85% {
     transform: translateY(-10px);
-    background: #d8c9a1; /* soft warm pop */
+    background: #d8c9a1;
   }
 
   /* FALL */
@@ -284,19 +284,22 @@ section img {
 
 .menu a {
   animation: bounceGlow 9s ease-in-out infinite;
+  animation-fill-mode: both;
 }
 
-.menu a:nth-child(1)  { animation-delay: 0.4s; }
-.menu a:nth-child(2)  { animation-delay: 0.55s; }
-.menu a:nth-child(3)  { animation-delay: 0.7s; }
-.menu a:nth-child(4)  { animation-delay: 0.85s; }
-.menu a:nth-child(5)  { animation-delay: 1s; }
-.menu a:nth-child(6)  { animation-delay: 1.15s; }
-.menu a:nth-child(7)  { animation-delay: 1.3s; }
-.menu a:nth-child(8)  { animation-delay: 1.45s; }
-.menu a:nth-child(9)  { animation-delay: 1.6s; }
-.menu a:nth-child(10) { animation-delay: 1.75s; }
-.menu a:nth-child(11) { animation-delay: 1.9s; }
+/* staggered start on page load */
+.menu a:nth-child(1)  { animation-delay: 0s; }
+.menu a:nth-child(2)  { animation-delay: 0.6s; }
+.menu a:nth-child(3)  { animation-delay: 1.2s; }
+.menu a:nth-child(4)  { animation-delay: 1.8s; }
+.menu a:nth-child(5)  { animation-delay: 2.4s; }
+.menu a:nth-child(6)  { animation-delay: 3s; }
+.menu a:nth-child(7)  { animation-delay: 3.6s; }
+.menu a:nth-child(8)  { animation-delay: 4.2s; }
+.menu a:nth-child(9)  { animation-delay: 4.8s; }
+.menu a:nth-child(10) { animation-delay: 5.4s; }
+.menu a:nth-child(11) { animation-delay: 6s; }
+
 
 
 .menu a {
