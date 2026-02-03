@@ -283,7 +283,7 @@ section img {
 }
 
 .menu a {
-  animation: breatheLift 9s ease-in-out infinite;
+  animation: bounceGlow 9s ease-in-out infinite;
 }
 
 .menu a:nth-child(1)  { animation-delay: 0.4s; }
@@ -299,6 +299,9 @@ section img {
 .menu a:nth-child(11) { animation-delay: 1.9s; }
 
 
+.menu a {
+  will-change: transform, background-color;
+}
 
 /* ===============================
    DETAILS / SUMMARY
