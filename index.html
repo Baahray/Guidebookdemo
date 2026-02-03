@@ -227,7 +227,7 @@ section img {
   display: block;
   text-align: center;
   padding: 14px;
-  background: #f1f3f1;
+  background: #d1d6d2;
   border-radius: 8px;
   text-decoration: none;
   color: #000;
@@ -240,23 +240,45 @@ section img {
 /* Optional hover polish */
 .menu a:hover,
 .back:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
+
 
 
 /* ===============================
    MENU ANIMATION
    =============================== */
 
-@keyframes twitch {
-  0%, 70% { transform: translateY(0) scale(1); }
-  85% { transform: translateY(-3px) scale(1.015); }
-  100% { transform: translateY(0) scale(1); }
+@keyframes bounceGlow {
+  0% {
+    transform: translateY(0);
+    background: #d1d6d2; /* back button colour */
+  }
+
+  40% {
+    transform: translateY(-4px);
+    background: #d1d6d2;
+  }
+
+  55% {
+    transform: translateY(-8px);
+    background: #f4a640; /* orange at the top */
+  }
+
+  70% {
+    transform: translateY(-4px);
+    background: #d1d6d2;
+  }
+
+  100% {
+    transform: translateY(0);
+    background: #d1d6d2;
+  }
 }
 
+
 .menu a {
-  animation: twitch 3s ease-in-out infinite both;
+  animation: bounceGlow 3.5s ease-in-out infinite;
 }
 
 .menu a:nth-child(1)  { animation-delay: 0.4s; }
