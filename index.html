@@ -334,61 +334,41 @@
 
   box-shadow:
     0 12px 22px rgba(0, 0, 0, 0.16);
-/* ===============================
-   MENU BUTTON SOFT POP + PAUSE
-   =============================== */
+/
 
-@keyframes soft-pop-pause {
-  /* resting */
+.menu a {
+  display: inline-block;
+  animation: gentle-pop 6s cubic-bezier(0.25, 0.6, 0.35, 1) infinite;
+}
+
+@keyframes gentle-pop {
+  /* totally still */
   0% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    transform: translateY(0);
   }
 
-  /* stay still for most of the time */
-  70% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  75% {
+    transform: translateY(0);
   }
 
-  /* gentle pop */
-  85% {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  /* soft lift */
+  82% {
+    transform: translateY(-4px);
   }
 
-  /* settle back */
+  /* slight overshoot settle */
+  88% {
+    transform: translateY(-2px);
+  }
+
+  /* back to rest */
   100% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    transform: translateY(0);
   }
 }
-
-/* Menu buttons */
-.menu a {
-  display: inline-block;
-  animation: soft-pop-pause 5.5s ease-in-out infinite;
+.menu a:nth-child(odd) {
+  animation-delay: 0.8s;
 }
-
-
-/* Base menu buttons */
-.menu a {
-  display: inline-block;
-  animation: soft-pop 3.8s ease-in-out infinite;
-}
-
-.menu a:nth-child(1)  { animation-delay: 0s; }
-.menu a:nth-child(2)  { animation-delay: 0.5s; }
-.menu a:nth-child(3)  { animation-delay: 1s; }
-.menu a:nth-child(4)  { animation-delay: 1.5s; }
-.menu a:nth-child(5)  { animation-delay: 2s; }
-.menu a:nth-child(6)  { animation-delay: 2.5s; }
-.menu a:nth-child(7)  { animation-delay: 3s; }
-.menu a:nth-child(8)  { animation-delay: 3.5s; }
-.menu a:nth-child(9)  { animation-delay: 4s; }
-.menu a:nth-child(10) { animation-delay: 4.5s; }
-.menu a:nth-child(11) { animation-delay: 5s; }
-
 
   </style>
 </head>
