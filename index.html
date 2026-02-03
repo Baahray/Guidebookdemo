@@ -251,27 +251,26 @@ section img {
 
 @keyframes bounceGlow {
   /* REST */
-  0%,
-  70% {
+  0%, 70% {
     transform: scale(1);
     background: #d1d6d2;
   }
 
   /* RISE */
   80% {
-    transform: scale(1.03);
+    transform: scale(1.025);
     background: #d1d6d2;
   }
 
-  /* PEAK — brief colour pop */
+  /* PEAK — brief soft pop */
   85% {
-    transform: scale(1.045); /* reduced pop */
-    background: #d8c9a1;
+    transform: scale(1.04);
+    background: #e6dcc6; /* calm warm linen */
   }
 
   /* FALL */
   92% {
-    transform: scale(1.02);
+    transform: scale(1.015);
     background: #d1d6d2;
   }
 
@@ -282,18 +281,24 @@ section img {
   }
 }
 
-
-
-
-
+/* APPLY THE ANIMATION */
 .menu a {
+  animation: bounceGlow 8s ease-in-out infinite;
   transform-origin: center;
-  backface-visibility: hidden;
-}
-
-.menu a {
   will-change: transform, background-color;
 }
+
+/* gentle wave, starts immediately */
+.menu a:nth-child(1)  { animation-delay: 0s; }
+.menu a:nth-child(2)  { animation-delay: 0.35s; }
+.menu a:nth-child(3)  { animation-delay: 0.7s; }
+.menu a:nth-child(4)  { animation-delay: 1.05s; }
+.menu a:nth-child(5)  { animation-delay: 1.4s; }
+.menu a:nth-child(6)  { animation-delay: 1.75s; }
+.menu a:nth-child(7)  { animation-delay: 2.1s; }
+.menu a:nth-child(8)  { animation-delay: 2.45s; }
+.menu a:nth-child(9)  { animation-delay: 2.8s; }
+
 
 /* ===============================
    DETAILS / SUMMARY
