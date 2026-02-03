@@ -249,7 +249,7 @@ section img {
    MENU ANIMATION
    =============================== */
 
-@keyframes depthBounce {
+@keyframes depthWave {
   /* REST */
   0% {
     transform: scale(1);
@@ -257,28 +257,21 @@ section img {
     box-shadow: 0 2px 5px rgba(0,0,0,0.14);
   }
 
-  /* FAST PUSH TOWARD VIEWER */
-  8% {
-    transform: scale(1.08);
-    background-color: #d1d6d2;
-    box-shadow: 0 22px 48px rgba(0,0,0,0.38);
-  }
-
-  /* PEAK – warm highlight */
-  14% {
-    transform: scale(1.12);
+  /* RISE TOWARD VIEWER */
+  25% {
+    transform: scale(1.1);
     background-color: #d8c9a1;
-    box-shadow: 0 30px 64px rgba(0,0,0,0.45);
+    box-shadow: 0 26px 56px rgba(0,0,0,0.4);
   }
 
-  /* ELASTIC SETTLE */
-  22% {
-    transform: scale(1.06);
+  /* SETTLE */
+  45% {
+    transform: scale(1.03);
     background-color: #d1d6d2;
-    box-shadow: 0 18px 38px rgba(0,0,0,0.3);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.28);
   }
 
-  /* FULL REST */
+  /* LONG REST */
   100% {
     transform: scale(1);
     background-color: #d1d6d2;
@@ -287,23 +280,24 @@ section img {
 }
 
 .menu a {
-  animation: depthBounce 7.5s cubic-bezier(.34,1.56,.64,1) infinite;
+  animation: depthWave 10s cubic-bezier(.22,.61,.36,1) infinite;
   animation-fill-mode: both;
   will-change: transform, box-shadow, background-color;
 }
 
-/* staggered but fast start */
+/* DOWNWARD WAVE */
 .menu a:nth-child(1)  { animation-delay: 0s; }
-.menu a:nth-child(2)  { animation-delay: 0.25s; }
-.menu a:nth-child(3)  { animation-delay: 0.5s; }
-.menu a:nth-child(4)  { animation-delay: 0.75s; }
-.menu a:nth-child(5)  { animation-delay: 1s; }
-.menu a:nth-child(6)  { animation-delay: 1.25s; }
-.menu a:nth-child(7)  { animation-delay: 1.5s; }
-.menu a:nth-child(8)  { animation-delay: 1.75s; }
-.menu a:nth-child(9)  { animation-delay: 2s; }
-.menu a:nth-child(10) { animation-delay: 2.25s; }
-.menu a:nth-child(11) { animation-delay: 2.5s; }
+.menu a:nth-child(2)  { animation-delay: 0.18s; }
+.menu a:nth-child(3)  { animation-delay: 0.36s; }
+.menu a:nth-child(4)  { animation-delay: 0.54s; }
+.menu a:nth-child(5)  { animation-delay: 0.72s; }
+.menu a:nth-child(6)  { animation-delay: 0.9s; }
+.menu a:nth-child(7)  { animation-delay: 1.08s; }
+.menu a:nth-child(8)  { animation-delay: 1.26s; }
+.menu a:nth-child(9)  { animation-delay: 1.44s; }
+.menu a:nth-child(10) { animation-delay: 1.62s; }
+.menu a:nth-child(11) { animation-delay: 1.8s; }
+
 
 
 
