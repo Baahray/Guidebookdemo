@@ -7,6 +7,14 @@
 
   <style>
 
+
+/* Guidebook background */
+.guidebook {
+  background: #f4f6f8;   /* soft light grey */
+  padding: 2rem 1.5rem 4rem;
+  min-height: 100vh;
+}
+
     
 
 .socials {
@@ -260,19 +268,71 @@
     details[open] summary::before {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23222' stroke-width='1.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M18 15l-6-6-6 6'/%3E%3C/svg%3E");
     }
+
+    /* ===============================
+   GUIDEBOOK BACKGROUND
+   =============================== */
+
+.guidebook {
+  background: #f2f4f7;
+  padding: 2rem 1.5rem 4rem;
+  min-height: 100vh;
+}
+
+/* ===============================
+   ARRIVAL SECTION – ELEVATED
+   =============================== */
+
+#arrival {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   TEXT DEPTH – GENTLE SINK
+   =============================== */
+
+/* Body text sinks in the most */
+#arrival p {
+  color: #2f3a45;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Sub-headings sink less */
+#arrival h3 {
+  color: #1f4fa3; /* company accent – easy to change later */
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* ===============================
+   PHOTOS – MOST ELEVATED
+   =============================== */
+
+#arrival img {
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+}
+
   </style>
 </head>
 
 <body>
+
+<!-- THE CONTENT OF THE BOOK -->
 
 <img src="Images/HEADER.png" alt="HEADER" style="width:100%; max-height:280px; object-fit:cover;">
 
   <h1>Luss Cottage</h1>
   <p style="text-align:center;">BNBHost</p>
 
-  <!-- MENU -->
+  <!-- MENU BUTTONS-->
   <div class="menu" id="menu">
-    <a href="#arrival">Check-In</a>
+    <a href="#arrival">Check-In</a> <!-- YOU CAN COPY A SECTION A REPURPOSE - ORANGE IS NAMED SAME AS ID IN THE SECTION WILL LINK TO AREA WHEN TAPPED - WHITE IS TEXT ON BUTTON-->
     <a href="#WIFI">Wifi</a>
     <a href="#heat">Heating</a>
     <a href="#spa">Sauna</a>
@@ -285,15 +345,17 @@
     <a href="#contact">Contact Us</a>
     
   </div>
+
+
  <!-- ARRIVAL SECTION -->
-  <section id="arrival">
-    <h2>Arrival & Check-in</h2>
+  <section id="arrival"> <!-- BUTTON LINK -->
+    <h2>Arrival & Check-in</h2> <!-- HEADING - CHANGE WHITE ONLY -->
 
     <h3>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
         <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
       </svg>
-      Address
+      Address <!-- SUB HEADER - WHITE TXT CAN BE CHANGED -->
     </h3>
 
     <p>
