@@ -342,38 +342,44 @@
     transform: translateY(0) scale(1);
   }
 
-  /* gentle lift */
-  40% {
-    transform: translateY(-4px) scale(1.02);
+  /* slow, gentle lift */
+  50% {
+    transform: translateY(-3px) scale(1.015);
   }
 
   /* soft settle */
-  70% {
-    transform: translateY(-2px) scale(1.01);
+  80% {
+    transform: translateY(-1px) scale(1.005);
   }
 
-  /* back to rest */
+  /* fully at rest */
   100% {
     transform: translateY(0) scale(1);
   }
 }
 
-/* Base button safety */
+/* Menu buttons */
 .menu a {
-  display: inline-block; /* REQUIRED for transform */
-  animation: twitch 0.45s ease-out 0.6s 1;
+  display: inline-block;
+  animation-name: twitch;
+  animation-duration: 0.8s;          /* slower */
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
 }
 
-/* Gentle stagger */
-.menu a:nth-child(1)  { animation-delay: 0.3s; }
-.menu a:nth-child(2)  { animation-delay: 0.45s; }
-.menu a:nth-child(3)  { animation-delay: 0.6s; }
-.menu a:nth-child(4)  { animation-delay: 0.75s; }
-.menu a:nth-child(5)  { animation-delay: 0.9s; }
-.menu a:nth-child(6)  { animation-delay: 1.05s; }
-.menu a:nth-child(7)  { animation-delay: 1.2s; }
-.menu a:nth-child(8)  { animation-delay: 1.35s; }
-.menu a
+/* Calm stagger */
+.menu a:nth-child(1)  { animation-delay: 0.4s; }
+.menu a:nth-child(2)  { animation-delay: 0.55s; }
+.menu a:nth-child(3)  { animation-delay: 0.7s; }
+.menu a:nth-child(4)  { animation-delay: 0.85s; }
+.menu a:nth-child(5)  { animation-delay: 1s; }
+.menu a:nth-child(6)  { animation-delay: 1.15s; }
+.menu a:nth-child(7)  { animation-delay: 1.3s; }
+.menu a:nth-child(8)  { animation-delay: 1.45s; }
+.menu a:nth-child(9)  { animation-delay: 1.6s; }
+.menu a:nth-child(10) { animation-delay: 1.75s; }
+.menu a:nth-child(11) { animation-delay: 1.9s; }
 
 
   </style>
