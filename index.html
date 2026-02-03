@@ -249,55 +249,26 @@ section img {
    MENU ANIMATION
    =============================== */
 
-@keyframes bounceGlow {
-  /* REST */
-  0%, 70% {
+@keyframes softPulse {
+  0% {
     transform: scale(1);
-    background: #d1d6d2;
   }
 
-  /* RISE */
-  80% {
-    transform: scale(1.025);
-    background: #d1d6d2;
+  50% {
+    transform: scale(1.035);
   }
 
-  /* PEAK — brief soft pop */
-  85% {
-    transform: scale(1.04);
-    background: #e6dcc6; /* calm warm linen */
-  }
-
-  /* FALL */
-  92% {
-    transform: scale(1.015);
-    background: #d1d6d2;
-  }
-
-  /* SETTLE */
   100% {
     transform: scale(1);
-    background: #d1d6d2;
   }
 }
 
-/* APPLY THE ANIMATION */
 .menu a {
-  animation: bounceGlow 8s ease-in-out infinite;
+  animation: softPulse 10s ease-in-out infinite;
   transform-origin: center;
-  will-change: transform, background-color;
+  will-change: transform;
 }
 
-/* gentle wave, starts immediately */
-.menu a:nth-child(1)  { animation-delay: 0s; }
-.menu a:nth-child(2)  { animation-delay: 0.35s; }
-.menu a:nth-child(3)  { animation-delay: 0.7s; }
-.menu a:nth-child(4)  { animation-delay: 1.05s; }
-.menu a:nth-child(5)  { animation-delay: 1.4s; }
-.menu a:nth-child(6)  { animation-delay: 1.75s; }
-.menu a:nth-child(7)  { animation-delay: 2.1s; }
-.menu a:nth-child(8)  { animation-delay: 2.45s; }
-.menu a:nth-child(9)  { animation-delay: 2.8s; }
 
 
 /* ===============================
