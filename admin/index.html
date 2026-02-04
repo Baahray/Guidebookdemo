@@ -1,10 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
     <title>Content Manager</title>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <!-- Tell CMS where it actually lives -->
+    <script>
+      window.CMS_CONFIG_PATH = "/Guidebookdemo/admin/config.yml";
+    </script>
+
+    <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
   </head>
-  <body>
-  </body>
+  <body></body>
 </html>
