@@ -53,14 +53,33 @@ h1 {
 h2 {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 1.6rem;
-  letter-spacing: 0.04em;
-
-  margin-top: 1rem;
-  margin-bottom: 1.25rem;
-
+  font-size: 1.55rem;        /* clearer hierarchy */
+  letter-spacing: 0.03em;
+  margin-top: 0;             /* removes extra space above */
+  margin-bottom: 1.1rem;
   text-align: center;
+  position: relative;
 }
+
+/* etched underline */
+h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin: 10px auto 0;
+
+  /* dark olive etched line */
+  background: #2f3a2f;
+
+  /* subtle carved effect */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.25),
+    inset 0 -1px 0 rgba(0,0,0,0.35);
+
+  border-radius: 1px;
+}
+
 
 
 /* Tighten H2 spacing inside cards */
@@ -184,7 +203,7 @@ section img {
 
 .warning-box {
   border-left: 4px solid #f4c430;
-  background: #f5e1a175;
+  background: #f1e7cd75;
   padding: 12px 14px;
   margin-top: 12px;
   color: #333333;
@@ -207,7 +226,7 @@ section img {
 
 .Blue-box {
   border-left: 4px solid #2171b7;
-  background: #b0d7ec7d;
+  background: #b2d9ee;
   padding: 12px 14px;
   margin-top: 12px;
 }
