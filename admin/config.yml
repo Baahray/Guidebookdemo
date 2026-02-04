@@ -1,9 +1,0 @@
-backend:
-  name: github
-  repo: Baahray/Guidebookdemo
-  branch: main
-
-media_folder: "Images/uploads"
-public_folder: "/Images/uploads"
-
-collections: []
