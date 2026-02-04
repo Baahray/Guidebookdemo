@@ -10,6 +10,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+#password-gate {
+  max-width: 320px;
+  margin: 120px auto;
+  text-align: center;
+}
+
+#password-gate input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+#password-gate button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#passwordError {
+  color: #b00020;
+  margin-top: 10px;
+}
 
 
 /* ===============================
@@ -569,7 +593,14 @@ details[open] summary::before {
 </head>
 
 <body>
+<div id="password-gate">
+  <h2>Enter Guidebook Password</h2>
+  <input type="password" id="passwordInput" placeholder="Password">
+  <button onclick="checkPassword()">Enter</button>
+  <p id="passwordError" style="display:none;">Incorrect password</p>
+</div>
 
+<div id="protected-content" style="display:none;">
 
 
 <!-- THE CONTENT OF THE BOOK -->
@@ -1473,5 +1504,28 @@ function closeLightbox() {
   document.body.classList.remove("no-scroll");
 }
 </script>
+
+<script>
+  const MASTER_PASSWORD = "ADMIN26";
+  const CURRENT_GUEST_PASSWORD = "Lastmonth";
+  const PREVIOUS_GUEST_PASSWORD = "Thismonth";
+
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+
+    if (
+      input === MASTER_PASSWORD ||
+      input === CURRENT_GUEST_PASSWORD ||
+      input === PREVIOUS_GUEST_PASSWORD
+    ) {
+      document.getElementById("password-gate").style.display = "none";
+      document.getElementById("protected-content").style.display = "block";
+    } else {
+      document.getElementById("passwordError").style.display = "block";
+    }
+  }
+</script>
+
+</div>
 </body>
 </html>
