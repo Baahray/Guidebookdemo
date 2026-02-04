@@ -587,18 +587,48 @@ details[open] summary::before {
   height: 48px;
 }
 
+/* PASSWORD SCREEN LAYOUT */
+#password-screen {
+  max-width: 360px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+#password-screen .password-row {
+  display: flex;
+  gap: 8px;
+}
+
+#password-input {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #c9cec8;
+  box-sizing: border-box;
+}
+
+#password-screen button {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #5f6f52;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
 
 </style>
 
 </head>
 
 <body>
-<div id="password-gate">
-  <h2>Enter Guidebook Password</h2>
-  <input type="password" id="passwordInput" placeholder="Password">
-  <button onclick="checkPassword()">Enter</button>
-  <p id="passwordError" style="display:none;">Incorrect password</p>
-</div>
+<div class="password-row">
+    <input type="password" id="password-input" placeholder="Password">
+    <button onclick="checkPassword()">Enter</button>
+  </div>
 
 <div id="protected-content" style="display:none;">
 
@@ -1506,25 +1536,51 @@ function closeLightbox() {
 </script>
 
 <script>
-  const MASTER_PASSWORD = "ADMIN26";
-  const CURRENT_GUEST_PASSWORD = "Lastmonth";
-  const PREVIOUS_GUEST_PASSWORD = "Thismonth";
+const VALID_PASSWORDS = [
+  "ADMINPASS",     // always works
+  "FEB2026",       // current guest
+  "JAN2026"        // last guest
+];
 
-  function checkPassword() {
-    const input = document.getElementById("passwordInput").value;
+const STORAGE_KEY = "bnbhost_auth";
+const EXPIRY_DAYS = 1;
 
-    if (
-      input === MASTER_PASSWORD ||
-      input === CURRENT_GUEST_PASSWORD ||
-      input === PREVIOUS_GUEST_PASSWORD
-    ) {
-      document.getElementById("password-gate").style.display = "none";
-      document.getElementById("protected-content").style.display = "block";
-    } else {
-      document.getElementById("passwordError").style.display = "block";
-    }
+/* auto-unlock on load */
+(function autoUnlock() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (!saved) return;
+
+  const data = JSON.parse(saved);
+  if (Date.now() < data.expires) {
+    unlock();
+  } else {
+    localStorage.removeItem(STORAGE_KEY);
   }
+})();
+
+function checkPassword() {
+  const input = document.getElementById("password-input").value;
+
+  if (VALID_PASSWORDS.includes(input)) {
+    const expires = Date.now() + EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ expires })
+    );
+
+    unlock();
+  } else {
+    alert("Incorrect password");
+  }
+}
+
+function unlock() {
+  document.querySelector(".password-row").style.display = "none";
+  document.getElementById("protected-content").style.display = "block";
+}
 </script>
+
 
 </div>
 </body>
