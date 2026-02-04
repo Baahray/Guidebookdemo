@@ -619,18 +619,73 @@ details[open] summary::before {
   white-space: nowrap;
 }
 
+/* ===============================
+   PASSWORD SCREEN (ADD — DO NOT REPLACE)
+   =============================== */
+
+.password-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #333a35;
+}
+
+.password-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  color: #f5f5f5;
+}
+
+.password-box {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.password-box input {
+  height: 46px;
+  padding: 0 14px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+}
+
+.password-box button {
+  height: 46px;
+  border-radius: 10px;
+  border: none;
+  background: #d1d6d2;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.password-box button:hover {
+  background: #e6dcc6;
+}
 
 </style>
 
 </head>
 
 <body>
-<div class="password-row">
-    <input type="password" id="password-input" placeholder="Password">
+<div class="password-screen">
+  <h2 class="password-title">Guidebook Access</h2>
+
+  <div class="password-box">
+    <input type="password" id="password-input" placeholder="Enter password">
     <button onclick="checkPassword()">Enter</button>
   </div>
 
-<div id="protected-content" style="display:none;">
+
 
 
 <!-- THE CONTENT OF THE BOOK -->
@@ -1543,7 +1598,7 @@ const VALID_PASSWORDS = [
 ];
 
 const STORAGE_KEY = "bnbhost_auth";
-const EXPIRY_DAYS = 1;
+const EXPIRY_MINUTES = 5;
 
 /* auto-unlock on load */
 (function autoUnlock() {
@@ -1576,7 +1631,7 @@ function checkPassword() {
 }
 
 function unlock() {
-  document.querySelector(".password-row").style.display = "none";
+ document.querySelector(".password-screen").style.display = "none";
   document.getElementById("protected-content").style.display = "block";
 }
 </script>
