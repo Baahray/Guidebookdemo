@@ -244,27 +244,52 @@ section img {
   box-shadow: 0 6px 14px rgba(0,0,0,0.18);
 }
 
-
-
-
 /* ===============================
    MENU ANIMATION — CLEAN & PREMIUM
    =============================== */
 
-/* REQUIRED for sheen positioning */
+/* BASE — REQUIRED */
 .menu a {
   position: relative;
   overflow: hidden;
   transform-origin: center;
+
+  /* SPRING POP — repeats every 8s */
+  animation: springPop 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
 }
 
-/* ---------- SPRING POP (ONE-TIME) ---------- */
+/* OPTIONAL: subtle top → bottom cascade */
+.menu a:nth-child(1) { animation-delay: 0s; }
+.menu a:nth-child(2) { animation-delay: 0.08s; }
+.menu a:nth-child(3) { animation-delay: 0.16s; }
+.menu a:nth-child(4) { animation-delay: 0.24s; }
+.menu a:nth-child(5) { animation-delay: 0.32s; }
+.menu a:nth-child(6) { animation-delay: 0.40s; }
+.menu a:nth-child(7) { animation-delay: 0.48s; }
+.menu a:nth-child(8) { animation-delay: 0.56s; }
+.menu a:nth-child(9) { animation-delay: 0.64s; }
+
+/* ---------- SPRING POP ---------- */
 @keyframes springPop {
-  0%   { transform: scale(1); }
-  35%  { transform: scale(1.06); }
-  55%  { transform: scale(0.98); }
-  75%  { transform: scale(1.015); }
-  100% { transform: scale(1); }
+  0%, 82% {
+    transform: scale(1);
+  }
+
+  86% {
+    transform: scale(1.065);
+  }
+
+  92% {
+    transform: scale(0.985);
+  }
+
+  96% {
+    transform: scale(1.015);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* ---------- SHEEN LAYER ---------- */
@@ -272,91 +297,45 @@ section img {
   content: "";
   position: absolute;
   inset: 0;
+
   background: linear-gradient(
     120deg,
-    transparent 15%,
-    rgba(255, 255, 255, 0.45) 35%,
+    transparent 20%,
+    rgba(255, 255, 255, 0.35) 40%,
     rgba(255, 255, 255, 0.6) 50%,
-    rgba(255, 255, 255, 0.45) 65%,
-    transparent 85%
+    rgba(255, 255, 255, 0.35) 60%,
+    transparent 80%
   );
-  transform: translateX(-130%);
+
+  transform: translateX(-140%);
   opacity: 0;
   pointer-events: none;
+
+  /* SHEEN — every 3s */
+  animation: sheenWave 3s ease-in-out infinite;
 }
 
-/* ---------- INTRO SHEEN ---------- */
-@keyframes introSheen {
+/* ---------- SHEEN KEYFRAMES ---------- */
+@keyframes sheenWave {
   0% {
     opacity: 0;
-    transform: translateX(-130%);
+    transform: translateX(-140%);
   }
 
   25% {
     opacity: 1;
   }
 
-  60% {
+  55% {
     opacity: 1;
-    transform: translateX(130%);
+    transform: translateX(140%);
   }
 
   100% {
     opacity: 0;
-    transform: translateX(130%);
+    transform: translateX(140%);
   }
 }
-
-/* ---------- CALM SHEEN LOOP ---------- */
-@keyframes calmSheen {
-  0%, 70% {
-    opacity: 0;
-    transform: translateX(-130%);
-  }
-
-  80% {
-    opacity: 1;
-  }
-
-  95% {
-    opacity: 1;
-    transform: translateX(130%);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateX(130%);
-  }
-}
-
-/* ---------- APPLY ANIMATIONS ---------- */
-.menu a {
-  animation:
-    springPop 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0s 1;
-}
-
-.menu a::after {
-  animation:
-    introSheen 2s ease-out 0.3s 1,
-    calmSheen 18s ease-in-out 1.8s infinite;
-}
-
-/* ---------- CASCADE (TOP → BOTTOM) ---------- */
-.menu a:nth-child(1) { animation-delay: 0s; }
-.menu a:nth-child(2) { animation-delay: 0.06s; }
-.menu a:nth-child(3) { animation-delay: 0.12s; }
-.menu a:nth-child(4) { animation-delay: 0.18s; }
-.menu a:nth-child(5) { animation-delay: 0.24s; }
-.menu a:nth-child(6) { animation-delay: 0.30s; }
-.menu a:nth-child(7) { animation-delay: 0.36s; }
-.menu a:nth-child(8) { animation-delay: 0.42s; }
-.menu a:nth-child(9) { animation-delay: 0.48s; }
-
-
-
-
-
-
 
 
 /* ===============================
