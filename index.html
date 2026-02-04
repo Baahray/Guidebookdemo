@@ -1616,16 +1616,16 @@ function closeLightbox() {
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ===============================
-     PASSWORD LOGIC
+     PASSWORDS
      =============================== */
 
   // CHANGE THESE
-  const MASTER_PASSWORD = "ADMIN";
-  const CURRENT_PASSWORD = "FEB2026";
-  const LAST_PASSWORD = "JAN2026";
+  const MASTER_PASSWORD = "ADMIN";// THIS ALWAYS WORKS FOR STAFF
+  const CURRENT_PASSWORD = "FEB2026";// ADD NEW PASSWORD HERE
+  const LAST_PASSWORD = "JAN2026";// ADD OLD PASSWORD HERE
 
   // CHANGE EXPIRY HERE (minutes)
-  const EXPIRY_MINUTES = 5; // 30 days
+  const EXPIRY_MINUTES = 5; // 30 days // CHOOSE WHEN PASSWORD AUTO RUNS OUT // IF ADDING DAYS IT NEEDS TO BE THIS STRUCTURE // 60 * 24 * AMOUNT OF DAYS HERE ADD ; AFTER
 
   // ELEMENTS
   const gate = document.getElementById("password-gate");
