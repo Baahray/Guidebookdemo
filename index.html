@@ -10,29 +10,86 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-#password-gate {
+/* ===============================
+   RESET
+   =============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ===============================
+   PASSWORD SCREEN
+   =============================== */
+.password-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #333a35;
+}
+
+.password-title {
+  color: #f5f5f5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+}
+
+.password-box {
+  width: 100%;
   max-width: 320px;
-  margin: 120px auto;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-#password-gate input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
+.password-box input {
+  height: 46px;
+  padding: 0 14px;
   font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #f7f7f7;
+  color: #222;
+  outline: none;
 }
 
-#password-gate button {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
+.password-box input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #f7f7f7 inset !important;
+  -webkit-text-fill-color: #222 !important;
+}
+
+.password-box button {
+  height: 46px;
+  border-radius: 10px;
+  border: none;
+  background: #d1d6d2;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   cursor: pointer;
 }
 
-#passwordError {
-  color: #b00020;
-  margin-top: 10px;
+.password-box button:hover {
+  background: #e6dcc6;
+}
+
+.password-error {
+  color: #ffdddd;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+/* ===============================
+   PROTECTED CONTENT
+   =============================== */
+#protected-content {
+  display: none;
+  padding: 40px;
 }
 
 
@@ -683,16 +740,12 @@ details[open] summary::before {
   <div class="password-box">
     <input type="password" id="password-input" placeholder="Enter password">
     <button onclick="checkPassword()">Enter</button>
+    <div id="password-error"></div>
   </div>
-
-  <p id="password-error"></p>
 </div>
 
-<!-- PROTECTED CONTENT -->
+<!-- 🔓 PROTECTED CONTENT -->
 <div id="protected-content" style="display:none;">
-
-
-
 
 <!-- THE CONTENT OF THE BOOK -->
 
@@ -1597,49 +1650,61 @@ function closeLightbox() {
 </script>
 
 <script>
-const VALID_PASSWORDS = [
-  "ADMINPASS",     // always works
-  "FEB2026",       // current guest
-  "JAN2026"        // last guest
-];
+document.addEventListener("DOMContentLoaded", () => {
 
-const STORAGE_KEY = "bnbhost_auth";
-const EXPIRY_MINUTES = 5;
+  /* ===============================
+     PASSWORD LOGIC
+     =============================== */
 
-/* auto-unlock on load */
-(function autoUnlock() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (!saved) return;
+  // CHANGE THESE
+  const MASTER_PASSWORD = "ADMIN";
+  const CURRENT_PASSWORD = "FEB2026";
+  const LAST_PASSWORD = "JAN2026";
 
-  const data = JSON.parse(saved);
-  if (Date.now() < data.expires) {
-    unlock();
-  } else {
-    localStorage.removeItem(STORAGE_KEY);
+  // CHANGE EXPIRY HERE (minutes)
+  const EXPIRY_MINUTES = 60 * 24 * 30; // 30 days
+
+  // ELEMENTS
+  const gate = document.getElementById("password-gate");
+  const content = document.getElementById("protected-content");
+  const input = document.getElementById("password-input");
+  const error = document.getElementById("password-error");
+
+  // UNLOCK FUNCTION
+  function unlock() {
+    gate.style.display = "none";
+    content.style.display = "block";
   }
-})();
 
-function checkPassword() {
-  const input = document.getElementById("password-input").value;
+  // CHECK PASSWORD (exposed globally for button onclick)
+  window.checkPassword = function () {
+    const value = input.value.trim();
+    const now = Date.now();
 
-  if (VALID_PASSWORDS.includes(input)) {
-    const expires = Date.now() + EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+    if (
+      value === MASTER_PASSWORD ||
+      value === CURRENT_PASSWORD ||
+      value === LAST_PASSWORD
+    ) {
+      localStorage.setItem("bnb_auth", now.toString());
+      unlock();
+    } else {
+      error.textContent = "Incorrect password";
+    }
+  };
 
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify({ expires })
-    );
-
-    unlock();
-  } else {
-    alert("Incorrect password");
+  // AUTO-UNLOCK IF SAVED
+  const saved = localStorage.getItem("bnb_auth");
+  if (saved) {
+    const elapsedMinutes = (Date.now() - Number(saved)) / 60000;
+    if (elapsedMinutes < EXPIRY_MINUTES) {
+      unlock();
+    } else {
+      localStorage.removeItem("bnb_auth");
+    }
   }
-}
 
-function unlock() {
- document.querySelector(".password-screen").style.display = "none";
-  document.getElementById("protected-content").style.display = "block";
-}
+});
 </script>
 
 
