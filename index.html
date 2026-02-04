@@ -280,8 +280,8 @@ section img {
 /* IMMEDIATE INTRO TOUCH */
 @keyframes introTouch {
   0%   { transform: translateY(0); }
-  40%  { transform: translateY(-3px); }
-  70%  { transform: translateY(-1px); }
+  40%  { transform: translateY(-5px); }
+  70%  { transform: translateY(-4px); }
   100% { transform: translateY(0); }
 }
 
@@ -333,14 +333,14 @@ section img {
 /* APPLY ANIMATIONS */
 .menu a {
   animation:
-    introTouch 0.9s ease-out 0s 1,
+    introTouch 0.9s ease-out 1s 16,
     calmFloat 16s ease-in-out 1.2s infinite;
   will-change: transform;
 }
 
 .menu a::after {
   animation:
-    introSheen 1.6s ease-out 0s 1,
+    introSheen 2s ease-out 0s 1,
     calmSheen 16s ease-in-out 1.2s infinite;
   will-change: transform, opacity;
 }
