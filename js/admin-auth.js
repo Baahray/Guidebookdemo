@@ -6,4 +6,19 @@ const supabaseClient = supabase.createClient(
   SUPABASE_ANON_KEY
 );
 
+// ===== TEST LOGIN FUNCTION =====
+
+async function testLogin() {
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email: "Barryjamescrawford@outlook.com",
+    password: "ADMIN2026"
+  });
+
+  if (error) {
+    console.error("Login failed:", error.message);
+  } else {
+    console.log("Login successful:", data);
+  }
+}
+
 console.log("Admin auth script loaded");
