@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login</title>
+</head>
+<body>
+
+<h1>Admin</h1>
+
+<div id="login-box">
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <button id="login-btn">Login</button>
+  <p id="login-error" style="color:red;"></p>
+</div>
+
+<div id="admin-area" style="display:none;">
+  <h2>Admin Dashboard</h2>
+  <button id="logout-btn">Logout</button>
+</div>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="../js/admin-auth.js"></script>
+
+</body>
+</html>
