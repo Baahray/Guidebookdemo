@@ -610,7 +610,7 @@ details[open] summary::before {
 
  <!-- ARRIVAL SECTION -->
   <section id="arrival"> <!-- BUTTON LINK -->
-    <h2 id="arrival-title"></h2> <!-- HEADING - CHANGE WHITE ONLY -->
+    <h2 id="arrival-title">Arrival & Check-in</h2> <!-- HEADING - CHANGE WHITE ONLY -->
 <div id="section-checkin"></div>
     <h3>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
@@ -1491,47 +1491,34 @@ function closeLightbox() {
 <script src="js/admin-auth.js"></script>
 
 <script>
-const supabase = window.supabase.createClient(
-  "https://wmxadphlrihwnggguwti.supabase.co",
-  "sb_publishable_P_fbg48EZ7lXehBTbJN21Q_EsMiT9TA"
-);
+const supabase = window.supabase?.createClient
+  ? window.supabase.createClient(
+      "https://wmxadphlrihwnggguwti.supabase.co",
+      "sb_publishable_P_fbg48EZ7lXehBTbJN21Q_EsMiT9TA"
+    )
+  : window.supabaseClient;
+</script>
 
-async function loadArrivalTitle() {
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const titleEl = document.getElementById("arrival-title");
+  if (!titleEl) return;
+
   const { data, error } = await supabase
     .from("sections")
     .select("title")
     .eq("slug", "arrival")
     .eq("enabled", true)
-    .single();
+    .limit(1);
 
-  if (data?.title) {
-    document.getElementById("section-title-arrival").textContent = data.title;
-  }
-}
-
-loadArrivalTitle();
-</script>
-<script>
-  async function loadArrivalTitle() {
-    const { data, error } = await supabase
-      .from("sections")
-      .select("title")
-      .eq("slug", "arrival")
-      .eq("enabled", true)
-      .single();
-
-    if (error) {
-      console.error("Failed to load arrival title:", error);
-      return;
-    }
-
-    const titleEl = document.getElementById("arrival-title");
-    if (titleEl) {
-      titleEl.textContent = data.title;
-    }
+  if (error || !data || data.length === 0) {
+    console.warn("Using fallback Arrival title");
+    return;
   }
 
-  loadArrivalTitle();
+  titleEl.textContent = data[0].title;
+});
 </script>
+
 </body>
 </html>
