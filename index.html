@@ -610,7 +610,7 @@ details[open] summary::before {
 
  <!-- ARRIVAL SECTION -->
   <section id="arrival"> <!-- BUTTON LINK -->
-    <h2 id="arrival-title">Arrival & Check-in</h2> <!-- HEADING - CHANGE WHITE ONLY -->
+    <h2 id="arrival-title"></h2> <!-- HEADING - CHANGE WHITE ONLY -->
 <div id="section-checkin"></div>
     <h3>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
@@ -1511,6 +1511,27 @@ async function loadArrivalTitle() {
 
 loadArrivalTitle();
 </script>
+<script>
+  async function loadArrivalTitle() {
+    const { data, error } = await supabase
+      .from("sections")
+      .select("title")
+      .eq("slug", "arrival")
+      .eq("enabled", true)
+      .single();
 
+    if (error) {
+      console.error("Failed to load arrival title:", error);
+      return;
+    }
+
+    const titleEl = document.getElementById("arrival-title");
+    if (titleEl) {
+      titleEl.textContent = data.title;
+    }
+  }
+
+  loadArrivalTitle();
+</script>
 </body>
 </html>
