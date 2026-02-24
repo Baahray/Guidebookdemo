@@ -15,13 +15,3 @@ function closeLightbox() {
   lightbox.style.display = "none";
   document.body.classList.remove("no-scroll");
 }
-
-// 🔒 HARD BIND: click on background closes
-const lightbox = document.getElementById("lightbox");
-if (lightbox) {
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-}
