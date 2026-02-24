@@ -19,3 +19,14 @@ function closeLightbox() {
   lightbox.style.display = "none";
   document.body.classList.remove("no-scroll");
 }
+
+// ✅ NEW: close when clicking the dark background
+document.addEventListener("click", (e) => {
+  const lightbox = document.getElementById("lightbox");
+  if (!lightbox || lightbox.style.display !== "flex") return;
+
+  // only close if the background itself was clicked
+  if (e.target === lightbox) {
+    closeLightbox();
+  }
+});
