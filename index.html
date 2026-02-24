@@ -41,14 +41,14 @@
 
 
  <!-- ARRIVAL SECTION -->
-  <section id="arrival"> <!-- BUTTON LINK -->
-    <h2>Arrival & Check-in</h2> <!-- HEADING - CHANGE WHITE ONLY -->
+  <section id="arrival">
+    <h2>Arrival & Check-in</h2> 
 
     <h3>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
         <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
       </svg>
-      Address <!-- SUB HEADER - WHITE TXT CAN BE CHANGED -->
+      Address
     </h3>
 
     <p>
@@ -68,7 +68,9 @@
       Check-in Time
     </h3>
 
-    <p>Check-in is from 4pm. Message on the day if you’d like to check earlier.</p>
+    <p data-content="arrival.checkin">
+  Check-in is from 4pm. Message on the day if you’d like to check earlier.
+</p>
 
  <!-- space -->
     <h3>
@@ -896,42 +898,10 @@ Please message us through the original booking platform.
   </div>
 </div>
 
-<script src="js/lightbox.js"></script>
+<!-- Scripts -->
 <script src="js/lightbox.js"></script>
 <script src="js/main.js"></script>
-
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script src="js/admin-auth.js"></script>
-
-<script>
-const supabase = window.supabase?.createClient
-  ? window.supabase.createClient(
-      "https://wmxadphlrihwnggguwti.supabase.co",
-      "sb_publishable_P_fbg48EZ7lXehBTbJN21Q_EsMiT9TA"
-    )
-  : window.supabaseClient;
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", async () => {
-  const titleEl = document.getElementById("arrival-title");
-  if (!titleEl) return;
-
-  const { data, error } = await supabase
-    .from("sections")
-    .select("title")
-    .eq("slug", "arrival")
-    .eq("enabled", true)
-    .limit(1);
-
-  if (error || !data || data.length === 0) {
-    console.warn("Using fallback Arrival title");
-    return;
-  }
-
-  titleEl.textContent = data[0].title;
-});
-</script>
+<script src="js/content.js"></script>
 
 </body>
 </html>
