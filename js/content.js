@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const text = await response.text();
     const lines = text.split("\n");
 
+    const data = {};
+
     lines.forEach(line => {
 
       const parts = line.split(":");
@@ -16,17 +18,34 @@ document.addEventListener("DOMContentLoaded", async () => {
       const key = parts[0].trim();
       const value = parts.slice(1).join(":").trim();
 
-      const element = document.querySelector(`[data-content="${section}.${key}"]`);
+      data[key] = value;
 
-      if (element) {
-        element.innerHTML = value;
-      }
+    });
+
+    // TEXT
+    Object.keys(data).forEach(key => {
+
+      const element = document.querySelector(`[data-content="${section}.${key}"]`);
+      if (element) element.innerHTML = data[key];
+
+    });
+
+    // IMAGES
+    Object.keys(data).forEach(key => {
+
+      const img = document.querySelector(`[data-img="${section}.${key}"]`);
+      if (img) img.src = "Images/uploads/" + data[key];
 
     });
 
   }
 
-  loadSection("arrival");
-  loadSection("wifi");
-loadSection("heating");
+  const sections = [
+    "arrival",
+    "wifi",
+    "heating"
+  ];
+
+  sections.forEach(loadSection);
+
 });
