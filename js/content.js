@@ -6,21 +6,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   const text = await response.text();
   const lines = text.split("\n");
 
-  const data = {};
-
   lines.forEach(line => {
-    const match = line.match(/^([^:]+):\s*(.+)$/);
-    if (!match) return;
 
-    const key = match[1].trim();
-    const value = match[2].trim();
+    const parts = line.split(":");
+    if (parts.length < 2) return;
 
-    data[key] = value;
-  });
+    const key = parts[0].trim();
+    const value = parts.slice(1).join(":").trim();
 
-  Object.keys(data).forEach(key => {
     const element = document.querySelector(`[data-content="arrival.${key}"]`);
-    if (element) element.innerHTML = data[key];
+
+    if (element) {
+      element.innerHTML = value;
+    }
+
   });
 
 });
