@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     });
 
-    // TEXT
+    // TEXT CONTENT
     Object.keys(data).forEach(key => {
 
       const element = document.querySelector(`[data-content="${section}.${key}"]`);
@@ -30,11 +30,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     });
 
-    // IMAGES
+    // IMAGE CONTENT
     Object.keys(data).forEach(key => {
 
       const img = document.querySelector(`[data-img="${section}.${key}"]`);
-      if (img) img.src = "Images/uploads/" + data[key];
+      if (img) img.src = "Images/" + data[key];
 
     });
 
