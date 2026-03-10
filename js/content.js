@@ -28,5 +28,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   loadSection("arrival");
   loadSection("wifi");
-
+loadSection("heating");
 });
