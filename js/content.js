@@ -1,25 +1,32 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-  const response = await fetch("content/sections/arrival.md");
-  if (!response.ok) return;
+  async function loadSection(section) {
 
-  const text = await response.text();
-  const lines = text.split("\n");
+    const response = await fetch(`content/sections/${section}.md`);
+    if (!response.ok) return;
 
-  lines.forEach(line => {
+    const text = await response.text();
+    const lines = text.split("\n");
 
-    const parts = line.split(":");
-    if (parts.length < 2) return;
+    lines.forEach(line => {
 
-    const key = parts[0].trim();
-    const value = parts.slice(1).join(":").trim();
+      const parts = line.split(":");
+      if (parts.length < 2) return;
 
-    const element = document.querySelector(`[data-content="arrival.${key}"]`);
+      const key = parts[0].trim();
+      const value = parts.slice(1).join(":").trim();
 
-    if (element) {
-      element.innerHTML = value;
-    }
+      const element = document.querySelector(`[data-content="${section}.${key}"]`);
 
-  });
+      if (element) {
+        element.innerHTML = value;
+      }
+
+    });
+
+  }
+
+  loadSection("arrival");
+  loadSection("wifi");
 
 });
