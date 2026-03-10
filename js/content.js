@@ -1,21 +1,26 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const response = await fetch("content/sections/arrival.md");
-    if (!response.ok) return;
 
-    const text = await response.text();
+  const response = await fetch("content/sections/arrival.md");
+  if (!response.ok) return;
 
-    // find: checkin: some text
-    const match = text.match(/^checkin:\s*(.+)$/m);
+  const text = await response.text();
+  const lines = text.split("\n");
+
+  const data = {};
+
+  lines.forEach(line => {
+    const match = line.match(/^([^:]+):\s*(.+)$/);
     if (!match) return;
 
-    const value = match[1].trim();
+    const key = match[1].trim();
+    const value = match[2].trim();
 
-    const target = document.querySelector('[data-content="arrival.checkin"]');
-    if (!target) return;
+    data[key] = value;
+  });
 
-    target.textContent = value;
-  } catch (e) {
-    // fail silently – site still works
-  }
+  Object.keys(data).forEach(key => {
+    const element = document.querySelector(`[data-content="arrival.${key}"]`);
+    if (element) element.innerHTML = data[key];
+  });
+
 });
